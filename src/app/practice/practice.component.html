@@ -1,0 +1,10 @@
+<p>Random number from child component:
+    {{randomNumber || 'Not yet generated'}}
+</p>
+
+
+<div class="row">
+    <div class="col-sm-2 columnpan">
+<app-right [subjectchild]="subjectparent" (numberGenerated1)="onNumberGenerated($event)"></app-right>
+</div>
+</div>

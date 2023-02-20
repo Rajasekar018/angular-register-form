@@ -1,0 +1,22 @@
+h1{
+    color: rgb(36, 39, 207);
+    font-weight: bold;
+}
+h2{
+    color: brown;
+}
+
+.tittle{
+    text-align: center;
+    vertical-align: bottom;
+    background-color: aqua;
+    height: 40px;
+    padding: 5px;
+
+}
+
+.columnpan{
+    height: 80vh;
+    border-color: lightslategray;
+    border-style: solid;
+}

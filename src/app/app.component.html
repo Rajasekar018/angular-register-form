@@ -1,0 +1,112 @@
+<!-- <h1> this is myfirstapp</h1>
+
+<div class="col-sm-3">
+   <app-left></app-left> 
+</div>
+<div class="col-sm-6">
+    <app-middle></app-middle>
+</div>
+<div class="col-sm-3">
+    <app-right></app-right>
+</div>
+ -->
+
+<div label="register" style="text-align: center;"><u><h3>REGISTER FORM</h3></u></div>
+ <div class="container">
+    <div class="row">
+    <div class="col-md-4 offset-md-4">
+    <form [formGroup]="registerForm" (ngSubmit)="ADD();">
+    <div class="formbox">
+     
+    <div class="form-group">
+    <input type="text" formControlName="fullName" class="form-control" placeholder="Full Name" 
+    [ngClass]="{ 'is-invalid': submitted && fval['fullName'].errors }"/>
+    <div *ngIf="submitted && fval['fullName'].errors" class="invalid-feedback">
+    <div *ngIf="fval['fullName'].errors['required']">
+    Full Name is required and must be a valid name
+    </div>
+     
+    </div>
+    </div><br>
+    <div class="form-group">
+    <input type="email" formControlName="email" class="form-control" placeholder="Email"
+     [ngClass]="{ 'is-invalid': submitted && fval['email'].errors }" />
+    <div *ngIf="submitted && fval['email'].errors" class="invalid-feedback">
+        <div *ngIf="fval['email'].errors['required']">Email is required</div>
+        <div *ngIf="fval['email'].errors['email']">Enter a valid email address</div>
+</div>
+</div><br>
+ 
+<div class="form-group">
+<input type="text" formControlName="phone" class="form-control" placeholder="Phone No." maxlength="10" minlength="10"  
+[ngClass]="{ 'is-invalid': submitted && fval['phone'].invalid }"
+ (keypress)="($event.charCode >= 48 && $event.charCode < 58)" required />
+<div *ngIf="submitted && fval['phone'].errors" class="invalid-feedback">
+<div *ngIf="fval['phone'].errors['required']">Phone is required</div>
+</div>
+</div><br>
+<div class="form-group">
+<input type="password" formControlName="password" class="form-control" placeholder="Password"
+ [ngClass]="{ 'is-invalid': submitted && fval['password'].errors}" />
+<div *ngIf="submitted && fval['password'].errors"class="invalid-feedback">
+<div ngClass="fval.password.errors.required">
+Password is required.
+</div>
+<div *ngIf="fval['password'].errors['minlength']">Password must be at least 6 characters</div>
+</div>
+</div><br>
+
+<div class="form-group">
+    <input type="Address" formControlName="Address" class="form-control" placeholder="Address"
+     [ngClass]="{ 'is-invalid': submitted && fval['Address'].errors}" />
+    <div *ngIf="submitted && fval['Address'].errors"class="invalid-feedback">
+    <div ngClass="fval['Address'].errors['required']">
+        Address is required.
+    </div>
+    </div>
+    </div><br>
+ 
+ 
+<div class="form-group">
+<button type="submit" class="btn btn-primary signin">ADD <span class="arrowbtn"><span
+class="fa fa-arrow-right"></span></span></button>
+ <!-- <button type="reset" class="btn btn-primary" style="margin-left: 100%;" (click)="reset()"
+ style="margin:50px;"  style="font-size: 100%;">Reset</button>  -->
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+<div>
+    <div class="card-header">
+    <h3><u>DATA TABLE</u></h3>
+    <div class="col-md-8 mt-4 mb-4" >
+      <table class="table table-bordered">
+        <thead>
+
+          <th>fullName</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>phone</th>
+          <th>Address</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listData; let i = index">
+            <td><span>{{item.fullName}}</span></td>
+            <td><span>{{item.email}}</span></td>
+            <td><span>{{item.password}}</span></td>
+            <td><span>{{item.phone}}</span></td>
+            <td><span>{{item.Address}}</span></td>
+            <td><button type="button" class="btn btn-primary" (click)="editItem(item, i)">Edit</button></td>
+            <td><button type="button" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>
