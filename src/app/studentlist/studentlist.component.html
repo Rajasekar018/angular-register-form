@@ -1,0 +1,48 @@
+
+      <div>
+        <div class="card-header">
+          <h3><u>DATA TABLE</u></h3>
+          <div class="col-md-8 mt-4 mb-4">
+            <table class="table table-bordered">
+              <thead>
+      
+                <th>Name</th>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Address</th>
+              </thead>
+           
+        <tbody>
+          <tr *ngFor="let student of studentList; let i = index">
+            
+            
+            <td><span>{{ student.name }}</span></td>
+            <td><span>{{ student.id }}</span></td>
+            <td><span>{{ student.email }}</span></td>
+            <td><span>{{ student.password }}</span></td>
+            <td><span>{{ student.gender }}</span></td>
+            <td><span>{{ student.address }}</span></td>
+         
+            <td><button type="button" class="btn btn-primary"  (click)="editItem(student, i)" [routerLink]="['/student-edit',student.id]"  >Edit</button></td>                      
+            <td><button type="button" class="btn btn-primary"   [routerLink]="['/student-view',student.id]">View </button></td>
+            <td><button type="button" class="btn btn-primary" (click)="removeItem(i)">Delete</button></td>
+            
+            <td *ngIf="studentList.length == 0" colspan="6">No Records</td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>
+   
+      
+
+
+        
+    
+  
+
+
